@@ -67,14 +67,14 @@ let clicks = 0;
 
 no_button.addEventListener('click', () => {
 
-    // ALWAYS change banner every click
     let banner = document.getElementById('banner');
-    banner.src = "public/images/no.gif";
-    refreshBanner();
+
+    // change banner every click
+    banner.src = "public/images/no.gif?" + new Date().getTime();
 
     clicks++;
 
-    // increase YES button size
+    // grow YES button
     const sizes = [40, 50, 30, 35, 45];
     const random = Math.floor(Math.random() * sizes.length);
     size += sizes[random];
@@ -84,7 +84,6 @@ no_button.addEventListener('click', () => {
 
     let total = answers_no[language].length;
 
-    // change NO button text
     if (i < total - 1) {
         no_button.innerHTML = answers_no[language][i];
         i++;
@@ -93,7 +92,6 @@ no_button.addEventListener('click', () => {
         i = 1;
         no_button.innerHTML = answers_no[language][0];
 
-        // reset YES button
         yes_button.innerHTML = answers_yes[language];
         yes_button.style.height = "50px";
         yes_button.style.width = "50px";
@@ -102,24 +100,20 @@ no_button.addEventListener('click', () => {
 });
 
 yes_button.addEventListener('click', () => {
-    // change banner gif path
+
     let banner = document.getElementById('banner');
-    banner.src = "public/images/yes.gif";
-    refreshBanner();
-    
+
+    // show romantic image
+    banner.src = "public/images/yes.gif?" + new Date().getTime();
+
+    // hide question + buttons
     document.getElementById('question-heading').style.display = "none";
-    // hide buttons div
-    let buttons = document.getElementsByClassName('buttons')[0];
-    buttons.style.display = "none";
-    // show message div
-    let message = document.getElementsByClassName('message')[0];
-    message.style.display = "block";
+    document.getElementsByClassName('buttons')[0].style.display = "none";
+
+    // show final message
+    document.getElementsByClassName('message')[0].style.display = "block";
 });
 
-function refreshBanner() {
-    let banner = document.getElementById('banner');
-    banner.src = banner.src.split('?')[0] + '?' + new Date().getTime();
-}
 
 function changeLanguage() {
     const selectElement = document.getElementById("language-select");
