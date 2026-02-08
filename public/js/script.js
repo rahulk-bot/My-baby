@@ -70,7 +70,7 @@ no_button.addEventListener('click', () => {
     let banner = document.getElementById('banner');
 
     // change banner every click
-    banner.src = "public/images/no.gif?" + new Date().getTime();
+    banner.src = "/My-baby/public/images/no.gif?" + new Date().getTime();
 
     clicks++;
 
@@ -104,7 +104,7 @@ yes_button.addEventListener('click', () => {
     let banner = document.getElementById('banner');
 
     // show romantic image
-    banner.src = "public/images/yes.gif?" + new Date().getTime();
+    banner.src = "/My-baby/public/images/yes.gif?" + new Date().getTime();
 
     // hide question + buttons
     document.getElementById('question-heading').style.display = "none";
