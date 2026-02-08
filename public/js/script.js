@@ -99,6 +99,8 @@ yes_button.addEventListener('click', () => {
     let banner = document.getElementById('banner');
     banner.src = "public/images/yes.gif";
     refreshBanner();
+    
+    document.getElementById('question-heading').style.display = "none";
     // hide buttons div
     let buttons = document.getElementsByClassName('buttons')[0];
     buttons.style.display = "none";
