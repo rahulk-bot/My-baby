@@ -66,27 +66,34 @@ let size = 50;
 let clicks = 0;
 
 no_button.addEventListener('click', () => {
-    // Change banner source
+
+    // ALWAYS change banner every click
     let banner = document.getElementById('banner');
-        banner.src = "public/images/no.gif";
-        refreshBanner();
-    }
+    banner.src = "public/images/no.gif";
+    refreshBanner();
+
     clicks++;
-    // increase button height and width gradually to 250px
-    const sizes = [40, 50, 30, 35, 45]
+
+    // increase YES button size
+    const sizes = [40, 50, 30, 35, 45];
     const random = Math.floor(Math.random() * sizes.length);
-    size += sizes[random]
+    size += sizes[random];
+
     yes_button.style.height = `${size}px`;
     yes_button.style.width = `${size}px`;
+
     let total = answers_no[language].length;
-    // change button text
+
+    // change NO button text
     if (i < total - 1) {
         no_button.innerHTML = answers_no[language][i];
         i++;
-    } else if (i === total - 1) {
+    } else {
         alert(answers_no[language][i]);
         i = 1;
         no_button.innerHTML = answers_no[language][0];
+
+        // reset YES button
         yes_button.innerHTML = answers_yes[language];
         yes_button.style.height = "50px";
         yes_button.style.width = "50px";
