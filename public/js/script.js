@@ -117,11 +117,8 @@ yes_button.addEventListener('click', () => {
 });
 
 function refreshBanner() {
-    // Reload banner gif to force load  
     let banner = document.getElementById('banner');
-    let src = banner.src;
-    banner.src = '';
-    banner.src = src;
+    banner.src = banner.src.split('?')[0] + '?' + new Date().getTime();
 }
 
 function changeLanguage() {
